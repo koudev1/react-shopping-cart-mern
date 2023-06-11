@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1",
+        "title": "Cup",
+        "imageUrl": "/image/cup.jpg",
+        "decs": "this is a cup",
+        "price": 100,
+        "sizes": ["S", "M"]
+    },
+    {
+        "id": "2",
+        "title": "iphone",
+        "imageUrl": "/image/iphone.jpg",
+        "decs": "this is a iphone",
+        "price": 1000,
+        "sizes": ["S"]
+    },
+    {
+        "id": "3",
+        "title": "phone",
+        "imageUrl": "/image/phone.jpg",
+        "decs": "this is a phone",
+        "price": 500,
+        "sizes": ["M"]
+    },
+    {
+        "id": "4",
+        "title": "tshirt",
+        "imageUrl": "/image/tshirt.jpg",
+        "decs": "this is a tshirt",
+        "price": 120,
+        "sizes": ["S"]
+    }
+]
