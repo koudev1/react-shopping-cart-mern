@@ -6,7 +6,9 @@ const Filter = (props) => {
     return (
         <div className="filters">
             <div className="filter-title">Filter</div>
-            <div className="num-products">Number of products 4</div>
+            <div className="num-products">
+                Number of products {props.productsNumber}
+            </div>
             <div className="filter-by-size">
                 <span>Filter</span>
                 <select

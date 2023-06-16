@@ -26,7 +26,9 @@ const Product = (props) => {
                             <p>{product.title}</p>
                             <span>${product.price}</span>
                         </div>
-                        <button>Add To Cart</button>
+                        <button onClick={() => props.addToCart(product)}>
+                            Add To Cart
+                        </button>
                     </div>
                 ))}
 
