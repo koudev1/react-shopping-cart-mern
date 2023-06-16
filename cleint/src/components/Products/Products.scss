@@ -19,15 +19,36 @@
             margin: 20px 0;
         }
 
-        button { 
+        button {
             display: block;
             width: 100%;
             border: 0;
             background: #2a5ea5;
             color: #fff;
-            padding: 7px;
+            padding: 7px; 
             cursor: pointer;
             border-radius: 5px;
         }
+    }
+}
+
+.close-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.product-details {
+    img {
+        display: block;
+        width: 40%;
+        margin: 20px auto;
+    }
+    p {
+        color: #2a5ea5;
+        font-size: 20px;
+        margin: 10px auto;
+        text-align: center;
     }
 }
