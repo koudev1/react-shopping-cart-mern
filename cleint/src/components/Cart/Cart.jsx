@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Fade from "react-reveal/Fade";
 
 import "../../css/Cart/Cart.css";
 import Checkout from "../CheckoutFrom/Checkout";
@@ -28,23 +29,27 @@ const Cart = (props) => {
                     <p> there is {props.cartItems.length} products in cart</p>
                 )}{" "}
             </div>
-            <div className="cart-items">
-                {props.cartItems.map((item) => (
-                    <div className="cart-item" key={item.id}>
-                        <img src={item.imageUrl} alt={item.title} />
-                        <div className="cart-decs">
-                            <div>
-                                <p>Title: {item.title}</p>
-                                <p>QTY: {item.qty}</p>
-                                <p>Price: ${item.price * item.qty}</p>
+            <Fade bottom cascade>
+                <div className="cart-items">
+                    {props.cartItems.map((item) => (
+                        <div className="cart-item" key={item.id}>
+                            <img src={item.imageUrl} alt={item.title} />
+                            <div className="cart-decs">
+                                <div>
+                                    <p>Title: {item.title}</p>
+                                    <p>QTY: {item.qty}</p>
+                                    <p>Price: ${item.price * item.qty}</p>
+                                </div>
+                                <button
+                                    onClick={() => props.removeFromCart(item)}
+                                >
+                                    Remove
+                                </button>
                             </div>
-                            <button onClick={() => props.removeFromCart(item)}>
-                                Remove
-                            </button>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            </Fade>
             {props.cartItems.length !== 0 && (
                 <div className="cart-footer">
                     <div className="total">

@@ -1,4 +1,5 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 
 import "../../css/CheckoutFrom/Checkout.css";
 import Input from "../Input/Input";
@@ -14,24 +15,26 @@ const Checkout = (props) => {
                     >
                         &times;
                     </span>
-                    <form action="" onSubmit={props.submitOrder}>
-                        <Input
-                            label="Name"
-                            type="text"
-                            name="name"
-                            onChange={props.handleChange}
-                        />
-                        <Input
-                            label="Email"
-                            type="email"
-                            name="email"
-                            onChange={props.handleChange}
-                        />
+                    <Fade bottom>
+                        <form action="" onSubmit={props.submitOrder}>
+                            <Input
+                                label="Name"
+                                type="text"
+                                name="name"
+                                onChange={props.handleChange}
+                            />
+                            <Input
+                                label="Email"
+                                type="email"
+                                name="email"
+                                onChange={props.handleChange}
+                            />
 
-                        <div>
-                            <button type="submit">Checkout</button>
-                        </div>
-                    </form>
+                            <div>
+                                <button type="submit">Checkout</button>
+                            </div>
+                        </form>
+                    </Fade>
                 </div>
             )}
         </>

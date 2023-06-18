@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Fade from 'react-reveal/Fade';
+
 import ProductModal from "./ProductModal";
 
 import "./../../css/Products/Products.css";
@@ -15,7 +17,7 @@ const Product = (props) => {
     };
 
     return (
-        <>
+        <Fade left cascade>
             <div className="products">
                 {props.products.map((product) => (
                     <div key={product.id} className="product-item">
@@ -34,7 +36,7 @@ const Product = (props) => {
 
                 <ProductModal product={product} closeModal={closeModal} />
             </div>
-        </>
+        </Fade>
     );
 };
 
