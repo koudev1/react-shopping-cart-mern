@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { Provider } from "react-redux";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Product from "./components/Products/Product";
-
-import data from "./data.json";
 import Filter from "./components/Filter/Filter";
 import Cart from "./components/Cart/Cart";
+
+import data from "./data.json";
+import store from "./store/store";
 
 function App() {
     const [products, setProducts] = useState(data);
     const [size, setSize] = useState("");
     const [sort, setSort] = useState("");
-    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems")) || []);
+    const [cartItems, setCartItems] = useState(
+        JSON.parse(localStorage.getItem("cartItems")) || []
+    );
 
     const handFilterBySize = (e) => {
         setSize(e.target.value);
@@ -41,7 +45,6 @@ function App() {
         });
         setProducts(newProducts);
     };
-    
 
     const addToCart = (product) => {
         const cartItemsClone = [...cartItems];
@@ -58,18 +61,17 @@ function App() {
         setCartItems(cartItemsClone);
     };
 
-
     useEffect(() => {
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }, [cartItems]);
 
     const removeFromCart = (product) => {
         const cartItemsClone = [...cartItems];
-        setCartItems(cartItemsClone.filter(p => p.id !== product.id));
-    }
+        setCartItems(cartItemsClone.filter((p) => p.id !== product.id));
+    };
 
     return (
-        <>
+        <Provider store={store}>
             <div className="layout">
                 <Header />
                 <main>
@@ -83,11 +85,14 @@ function App() {
                             handFilterBySort={handFilterBySort}
                         />
                     </div>
-                    <Cart cartItems={cartItems}  removeFromCart={removeFromCart} />
+                    <Cart
+                        cartItems={cartItems}
+                        removeFromCart={removeFromCart}
+                    />
                 </main>
                 <Footer />
             </div>
-        </>
+        </Provider>
     );
 }
 
